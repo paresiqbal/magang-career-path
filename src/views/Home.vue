@@ -11,9 +11,7 @@
           <p>Front End</p>
         </div>
         <div class="icons">
-          <a href=""
-            ><font-awesome-icon icon="fa-solid fa-chevron-right fa-2xl"
-          /></a>
+          <a href=""><font-awesome-icon icon="fa-solid fa-chevron-right fa-2xl" /></a>
         </div>
       </div>
 
@@ -23,9 +21,7 @@
           <p>Back End</p>
         </div>
         <div class="icons">
-          <a href=""
-            ><font-awesome-icon icon="fa-solid fa-chevron-right fa-2xl"
-          /></a>
+          <a href=""><font-awesome-icon icon="fa-solid fa-chevron-right fa-2xl" /></a>
         </div>
       </div>
 
@@ -35,9 +31,7 @@
           <p>Back End</p>
         </div>
         <div class="icons">
-          <a href=""
-            ><font-awesome-icon icon="fa-solid fa-chevron-right fa-2xl"
-          /></a>
+          <a href=""><font-awesome-icon icon="fa-solid fa-chevron-right fa-2xl" /></a>
         </div>
       </div>
 
@@ -47,9 +41,7 @@
           <p>Back End</p>
         </div>
         <div class="icons">
-          <a href=""
-            ><font-awesome-icon icon="fa-solid fa-chevron-right fa-2xl"
-          /></a>
+          <a href=""><font-awesome-icon icon="fa-solid fa-chevron-right fa-2xl" /></a>
         </div>
       </div>
 
@@ -59,9 +51,7 @@
           <p>Back End</p>
         </div>
         <div class="icons">
-          <a href=""
-            ><font-awesome-icon icon="fa-solid fa-chevron-right fa-2xl"
-          /></a>
+          <a href=""><font-awesome-icon icon="fa-solid fa-chevron-right fa-2xl" /></a>
         </div>
       </div>
 
@@ -71,9 +61,7 @@
           <p>Back End</p>
         </div>
         <div class="icons">
-          <a href=""
-            ><font-awesome-icon icon="fa-solid fa-chevron-right fa-2xl"
-          /></a>
+          <a href=""><font-awesome-icon icon="fa-solid fa-chevron-right fa-2xl" /></a>
         </div>
       </div>
     </div>
@@ -82,16 +70,18 @@
       <button>Lihat Semua</button>
     </div>
 
-    <figure v-for="card in cards">
+    <figure v-for="card in cards" :key="card.key">
       <figcaption>{{ card.judul }}</figcaption>
-      <img src="{{ card.image }}" />
+      <img :src="card.images" alt="backend.png" />
     </figure>
   </div>
 </template>
 
 <script setup>
 const cards = [
-  { judul: "Front End", images: "../../assets/image/backend.png" },
+  { key: 1, judul: "Front End", images: "src/assets/image/backend.png" },
+  { key: 2, judul: "busines development", images: "src/assets/image/busines development.png" },
+  { key: 3, judul: "system analis", images: "src/assets/image/system analis.png" },
 ];
 </script>
 
