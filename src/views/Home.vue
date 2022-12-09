@@ -19,13 +19,8 @@
     </div>
 
     <div class="collaps">
-      <button>Lihat Semua</button>
+      <button>Show more</button>
     </div>
-
-    <!-- <figure v-for="card in cards" :key="card.key">
-      <p>{{ card.judul }}</p>
-      <img :src="card.images" alt="backend.png" />
-    </figure> -->
   </div>
 </template>
 
