@@ -1,31 +1,19 @@
-<template>
-  <div class="container">
-    <div class="judul">
-      <h1>Pilihan Karir Kamu</h1>
-    </div>
-
-    <div class="cardContainer">
-      <div class="card" v-for="card in cards" :key="card.key">
-        <div class="picture">
-          <img :src="card.images" alt="backend.png" />
-          <p>{{ card.judul }}</p>
-        </div>
-        <div class="icons">
-          <a href=""
-            ><font-awesome-icon icon="fa-solid fa-chevron-right fa-2xl"
-          /></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="collaps">
-      <button>Show more</button>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { ref } from "vue";
+
+const defaultValue = 6;
+
+const cardVisible = ref(defaultValue);
+const toVisible = 5;
+const toggleViewMore = ref(false);
+
+function showMore() {
+  toggleViewMore.value = !toggleViewMore.value;
+  cardVisible.value = defaultValue;
+  if (toggleViewMore.value) {
+    cardVisible.value += toVisible;
+  }
+}
 
 const cards = ref([
   { key: 1, judul: "Frontend", images: "src/assets/image/frontend.png" },
@@ -81,6 +69,34 @@ const cards = ref([
   },
 ]);
 </script>
+
+<template>
+  <div class="container">
+    <div class="judul">
+      <h1>Pilihan Karir Kamu</h1>
+    </div>
+
+    <div class="cardContainer">
+      <div class="card" v-for="card in cards.slice(0, cardVisible)">
+        <div class="picture">
+          <img :src="card.images" alt="backend.png" />
+          <p>{{ card.judul }}</p>
+        </div>
+        <div class="icons">
+          <a href="#"
+            ><font-awesome-icon icon="fa-solid fa-chevron-right fa-2xl"
+          /></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="collaps">
+      <button @click="showMore()">
+        {{ toggleViewMore ? "Lihat lebih sedikit" : "Lihat Lebih Banyak" }}
+      </button>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .container {
